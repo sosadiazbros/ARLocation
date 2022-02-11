@@ -6,8 +6,8 @@
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 	<title>GeoAR.js demo</title>
 	<script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
-	<script src="https://unpkg.com/ar.js@2.2.2/aframe/build/aframe-ar.min.js"></script>
-	<script src="https://unpkg.com/browse/aframe-extras@3.3.0/dist/aframe-extras.loaders.min.js"></script>
+	<script src="./aframe/build/aframe-ar.min.js"></script>
+	<script src="./aframe-extras/dist/aframe-extras.loaders.min.js"></script>
 	<script>
     AFRAME.registerComponent('position-reader', {
   tick: function () {
@@ -35,7 +35,7 @@ function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude +
   "<br>Longitude: " + position.coords.longitude;
 }
-		THREEx.ArToolkitContext.baseURL = 'https://unpkg.com/browse/three@0.77.0/three.min.js'
+		THREEx.ArToolkitContext.baseURL = './three.js/'
 	</script>
 </head>
 
