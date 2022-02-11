@@ -16,6 +16,25 @@
     console.log(distanceMsg);
   }
 });
+AFRAME.registerComponent('pos', {
+tick: function () {
+getLocation();
+}
+});
+function getLocation() {
+  x= document.querySelector("#coordinate")
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+    x= document.querySelector("#coordinate")
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
 		THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
 	</script>
 </head>
@@ -29,6 +48,8 @@
 		<a-camera positionMinAccuracy="10" alert="true" position-reader gps-camera maxDistance="1" rotation-reader></a-camera>
 	</a-scene>
   <div id="distance" style="position:absolute;    font-size: 61px;width: 400px;top: 0px;">
+    <div id="coordinate" style="position:absolute;    font-size: 61px;width: 400px;top: 80px;">
+
     </div>
 </body>
 </html>
